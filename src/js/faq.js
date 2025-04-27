@@ -63,7 +63,7 @@ function updateAccordionIcons() {
 }
 
 // И сразу обновляем иконки на старте
-updateAccordionIcons();
+setTimeout(updateAccordionIcons, 100); // Убираем задержку
 
 /* // Слушаем события открытия и закрытия секций
 document.querySelector('.accordion-container').addEventListener('accordion.open', () => {
