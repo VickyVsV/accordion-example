@@ -1,4 +1,4 @@
-import Accordion from 'accordion-js';
+/* import Accordion from 'accordion-js';
 import 'accordion-js/dist/accordion.min.css';
 
 new Accordion('.accordion-container', {
@@ -31,3 +31,43 @@ triggers.forEach(trigger => {
     updateAccordionIcons();
   });
 });
+ */
+
+
+import Accordion from 'accordion-js';
+import 'accordion-js/dist/accordion.min.css';
+
+const accordion = new Accordion('.accordion-container', {
+  duration: 400,
+  showMultiple: false,
+  openOnInit: [0],
+});
+
+function updateAccordionIcons() {
+  const listItems = document.querySelectorAll('.ac');
+
+  listItems.forEach(listItem => {
+    const icon = listItem.querySelector('.ac-icon use');
+
+    if (!icon) return;
+
+    if (listItem.classList.contains('is-active')) {
+      icon.setAttribute('href', '/accordion-example/sprite.svg#arrow-up');
+      // или icon.setAttribute('xlink:href', '/accordion-example/sprite.svg#arrow-up');
+    } else {
+      icon.setAttribute('href', '/accordion-example/sprite.svg#arrow-down');
+    }
+  });
+}
+
+// Слушаем события открытия и закрытия секций
+document.querySelector('.accordion-container').addEventListener('accordion.open', () => {
+  updateAccordionIcons();
+});
+
+document.querySelector('.accordion-container').addEventListener('accordion.close', () => {
+  updateAccordionIcons();
+});
+
+// И сразу обновляем на старте, чтобы иконки были правильными
+updateAccordionIcons();
