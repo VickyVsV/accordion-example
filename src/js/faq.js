@@ -53,12 +53,20 @@ function updateAccordionIcons() {
 
     if (!icon) return;
 
-    if (listItem.classList.contains('is-active')) {
+    /* if (listItem.classList.contains('is-active')) {
       icon.setAttribute('href', '/accordion-example/sprite.svg#arrow-up');
       // или icon.setAttribute('xlink:href', '/accordion-example/sprite.svg#arrow-up');
     } else {
       icon.setAttribute('href', '/accordion-example/sprite.svg#arrow-down');
-    }
+    } */
+
+      requestAnimationFrame(() => {
+        if (listItem.classList.contains('is-active')) {
+          icon.setAttribute('href', '/accordion-example/sprite.svg#arrow-up');
+        } else {
+          icon.setAttribute('href', '/accordion-example/sprite.svg#arrow-down');
+        }
+      });
   });
 }
 
