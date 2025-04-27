@@ -18,7 +18,7 @@ function updateAccordionIcons() {
     if (!icon) return; // Если иконка не найдена, пропускаем
 
     if (listItem.classList.contains('is-active')) {
-      icon.setAttribute('href', '/accordion-example/sprite.svg#arrow-uo');
+      icon.setAttribute('href', '/accordion-example/sprite.svg#arrow-up');
     } else {
       icon.setAttribute('href', '/accordion-example/sprite.svg#arrow-down');
     }
