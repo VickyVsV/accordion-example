@@ -41,6 +41,8 @@ const accordion = new Accordion('.accordion-container', {
   duration: 400,
   showMultiple: false,
   openOnInit: [0],
+  onOpen: updateAccordionIcons,  // Обновление иконок при открытии
+  onClose: updateAccordionIcons, // Обновление иконок при закрытии
 });
 
 function updateAccordionIcons() {
@@ -60,7 +62,10 @@ function updateAccordionIcons() {
   });
 }
 
-// Слушаем события открытия и закрытия секций
+// И сразу обновляем иконки на старте
+updateAccordionIcons();
+
+/* // Слушаем события открытия и закрытия секций
 document.querySelector('.accordion-container').addEventListener('accordion.open', () => {
   updateAccordionIcons();
 });
@@ -70,4 +75,4 @@ document.querySelector('.accordion-container').addEventListener('accordion.close
 });
 
 // И сразу обновляем на старте, чтобы иконки были правильными
-updateAccordionIcons();
+updateAccordionIcons(); */
